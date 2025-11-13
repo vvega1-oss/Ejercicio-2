@@ -1,0 +1,180 @@
+/* =======================
+   VARIABLES / BASE
+   ======================= */
+:root{
+  --color-principal:#3f3f3f;
+  --color-secundario:#e4a4c4;
+  --color-texto:#000000;
+  --color-muted:#f7ef84;
+  --bg:#f8f5fb;
+  --white:#ffffff;
+  --border:#e5e7eb;
+  --radius:12px;
+  --shadow:0 8px 24px rgba(17,24,39,.08);
+  --maxw:1200px;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Noto Sans",sans-serif;
+  color:var(--color-texto);
+  background:var(--bg);
+  line-height:1.6;
+}
+img{max-width:100%;display:block}
+a{color:var(--color-principal);text-decoration:none}
+h1,h2,h3{color:var(--color-principal);margin-top:0}
+
+/* =======================
+   NAV
+   ======================= */
+.navbar{
+  position: sticky; top:0; z-index:50;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 32px;
+  background:var(--white);
+  box-shadow:0 2px 10px rgba(0,0,0,.05);
+}
+.logo{font-weight:800;color:var(--color-texto)}
+.menu{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+.menu a{color:var(--color-texto);font-weight:500}
+.btn{
+  background:var(--color-principal); color:#ffffff;
+  padding:10px 16px; border-radius:999px; font-weight:600; display:inline-block;
+}
+
+/* =======================
+   BANNER 1980×550
+   ======================= */
+/* Usa tu archivo real. Ej.: banner.webp (1980x550) */
+.banner{
+  position:relative;
+  width:100%;
+  min-height:550px;             /* Altura visible exacta */
+  display:flex; align-items:center;
+  background-color:#c7708a;     /* color de respaldo */
+  background-image:url("img/_MG_8746.JPG");
+  background-repeat:no-repeat;
+  background-position:right center; /* personaje a la derecha */
+  background-size:cover;             /* respeta proporciones 1980x550 */
+  overflow:visible;
+}
+/* Overlay para contraste del copy (más fuerte en móviles) */
+.banner::before{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(90deg, rgba(0,0,0,.42) 0%, rgba(0,0,0,.24) 35%, rgba(0,0,0,0) 65%);
+  pointer-events:none;
+}
+.banner-texto{
+  position:relative; z-index:1; color:#fff;
+  width:100%; max-width:var(--maxw);
+  margin-inline:auto;
+  padding:60px 10%;
+}
+.banner-texto h1{
+  font-size:clamp(28px,4vw,44px);
+  line-height:1.2; margin:0 0 12px 0; color:#fff;
+}
+.banner-texto p{ color:#f3f4f6; margin:0 0 22px 0; font-size:clamp(16px,1.3vw,18px); }
+.cta-group{ display:flex; gap:12px; flex-wrap:wrap }
+.btn-primario{
+  background:var(--color-secundario); color:#fff; padding:12px 24px; border-radius:var(--radius); font-weight:700;
+}
+.btn-secundario{
+  background:transparent; color:#fff; padding:10px 22px; border-radius:var(--radius);
+  border:2px solid #fff; font-weight:700;
+}
+
+/* =======================
+   CONTENEDORES / PANELES
+   ======================= */
+.container{ width:min(100%, var(--maxw)); margin-inline:auto; padding:0 16px; }
+.panel{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:28px;
+  margin:28px auto;
+}
+
+/* =======================
+   SERVICIOS
+   ======================= */
+.tarjetas{
+  display:grid; gap:18px;
+  grid-template-columns:repeat(3,1fr);
+}
+.card{
+  background:var(--white); border:1px solid var(--border);
+  border-radius:var(--radius); box-shadow:var(--shadow);
+  padding:20px;
+}
+
+/* =======================
+   TABLA
+   ======================= */
+table{ width:100%; border-collapse:collapse; margin-top:10px; font-size:.95rem }
+th, td{ padding:12px; border-top:1px solid var(--border); text-align:left; vertical-align:top }
+thead th{ background:#ede9fe; color:#f1d142; border-top:none }
+
+/* =======================
+   GRID PROYECTOS
+   ======================= */
+.grid{
+  display:grid; gap:18px;
+  grid-template-columns:repeat(3,1fr);
+}
+.card-content{ padding:14px }
+
+/* =======================
+   CONTACTO + REDES
+   ======================= */
+.contact-form{
+  display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:8px;
+}
+.field{ display:flex; flex-direction:column; gap:6px }
+.field.full{ grid-column:1 / -1 }
+input, textarea{
+  font:inherit; padding:10px 12px; border:1px solid var(--border); border-radius:10px;
+}
+.actions{ grid-column:1 / -1 }
+.actions .btn-primario{ padding:12px 22px }
+
+.redes{
+  margin-top:18px; display:flex; flex-wrap:wrap; gap:10px;
+}
+.social{
+  padding:10px 14px; border-radius:999px; color:#fff; font-weight:700; text-transform:capitalize;
+}
+.fb{ background:#1877f2 }
+.ig{ background:#c13584 }
+.tk{ background:#111111 }
+.be{ background:#1769ff }
+
+/* =======================
+   FOOTER
+   ======================= */
+.footer{
+  text-align:center; color:var(--color-muted); padding:36px 16px;
+}
+
+/* =======================
+   RESPONSIVE
+   ======================= */
+@media (max-width:1024px){
+  .banner::before{
+    background:linear-gradient(90deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.35) 45%, rgba(0,0,0,0) 85%);
+  }
+  .tarjetas, .grid{ grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width:680px){
+  .navbar{ padding:12px 16px }
+  .menu{ gap:14px }
+  .banner{ min-height:520px }
+  .banner-texto{ padding:44px 7% }
+  .tarjetas, .grid{ grid-template-columns:1fr }
+  .contact-form{ grid-template-columns:1fr }
+}
